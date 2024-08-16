@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool: myAgentPool
+pool: 'Azure Pipelines'
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
@@ -21,7 +21,7 @@ stages:
   displayName: Build stage
   jobs:
   - job: BuildJob
-    pool: myAgentPool
+    pool: 'Azure Pipelines'
     steps:    
     - script: |
         export PATH=$HOME/.local/bin:$PATH
