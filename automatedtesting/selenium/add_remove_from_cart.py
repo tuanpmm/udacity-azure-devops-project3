@@ -14,9 +14,10 @@ from selenium.webdriver.common.by import By
 # servico = Service(ChromeDriverManager().install())
 # driver = webdriver.Chrome(service=servico, options=options)
 
-# driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=options)
+service = Service(executable_path='/usr/bin/chromedriver')
+driver = webdriver.Chrome(service=service)
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+# driver = webdriver.Chrome(ChromeDriverManager().install())
 totalItems = 6
 
 # Start the browser and login with standard_user
