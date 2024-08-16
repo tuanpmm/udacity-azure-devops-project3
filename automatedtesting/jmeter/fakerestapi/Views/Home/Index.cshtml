@@ -92,7 +92,7 @@ $.ajax({
             var root = 'https://fakerestapi.azurewebsites.net/api/v1';
 
             $.ajax({
-                url: root + '/api/activities/1',
+                url: root + '/Activities/1',
                 method: 'GET'
             }).then(function (data) {
                 var str = JSON.stringify(data, null, '\t')
