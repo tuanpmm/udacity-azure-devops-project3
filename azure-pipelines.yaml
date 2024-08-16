@@ -227,7 +227,7 @@ stages:
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
-                sudo apt-get install -y chromium-browser=114.0.5735.90
+                sudo apt-get install -y chromium-browser
                 pip3 install selenium --break-system-packages
                 cd ~/
                 DIR=/home/azureuser/app
