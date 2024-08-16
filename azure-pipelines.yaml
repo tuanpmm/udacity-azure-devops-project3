@@ -224,25 +224,32 @@ stages:
               script: |           
                 #! /bin/bash
                                 
+                sudo apt-get update -y
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
                 sudo apt-get install -y chromium-browser
-                pip3 install webdriver-manager --break-system-packages
+                sudo apt-get install -y chromium-chromedriver
                 pip3 install selenium --break-system-packages
                 cd ~/
                 DIR=/home/azureuser/app
                 if [ ! -d "$DIR" ]; then
                     mkdir app
                 fi
-                mv /home/azureuser/azagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
+                mv $(Pipeline.Workspace)/drop-uitests/$(Build.BuildId)-uitests.zip app
                 cd app
                 unzip -o $(Build.BuildId)-uitests.zip
-                sudo rm -d /usr/bin/chromedriver
-                wget http://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-                unzip -o chromedriver_linux64.zip
-                sudo ln -s $PWD/chromedriver /usr/bin/chromedriver
-                export PATH=$PATH:/home/azureuser/app
+                FILE=/home/azureuser/app/chromedriver_linux64.zip
+                if [ ! -f "$FILE" ]; then
+                    LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+                    wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+                    unzip -o chromedriver_linux64.zip
+                    sudo mv chromedriver /usr/bin/chromedriver
+                    sudo chown root:root /usr/bin/chromedriver
+                    sudo chmod +x /usr/bin/chromedriverq
+                fi
+                export PATH=$PATH:/usr/bin/chromedriver
+
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."

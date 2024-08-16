@@ -6,18 +6,13 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.common.by import By
 
 # --uncomment when running in Azure DevOps.
-options = ChromeOptions()
-options.add_argument('headless')
-options.add_argument('--no-sandbox')
+options = ChromeOptions()    
+options.add_argument("--headless")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--no-sandbox")
 options.add_argument("--remote-debugging-port=9222")
 
-# servico = Service(ChromeDriverManager().install())
-# driver = webdriver.Chrome(service=servico, options=options)
-
-service = Service(executable_path='/usr/bin/chromedriver')
-driver = webdriver.Chrome(service=service, options=options)
-
-# driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(options=options)
 totalItems = 6
 
 # Start the browser and login with standard_user
