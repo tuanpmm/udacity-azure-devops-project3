@@ -249,6 +249,14 @@ stages:
                 export PATH=$PATH:/usr/bin/chromedriver
 
                 echo "Starting Selenium Tests"
-                python3 add_remove_from_cart.py >> selenium.log
+                mkdir -p $(Pipeline.Workspace)/drop-uitests/log/selenium
+                python3 add_remove_from_cart.py >> $(Pipeline.Workspace)/drop-uitests/log/selenium/selenium.log
                 sudo cat selenium.log
+                sudo cp $(Pipeline.Workspace)/drop-uitests/log/selenium/selenium.log /home/azureuser/app/selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
+
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Selenium Log
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/drop-uitests/log/selenium/selenium.log'
+              artifactName: 'drop-selenium-logs'
