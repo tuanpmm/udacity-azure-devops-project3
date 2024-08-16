@@ -228,7 +228,7 @@ stages:
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
                 sudo apt-get install -y chromium-browser
-                sudo apt-get install python3.12-venv
+                sudo apt install python3.12-venv
                 python3 -m venv ~/.myrepo
                 source ~/.myrepo/bin/activate
                 python3 -m pip3 install selenium

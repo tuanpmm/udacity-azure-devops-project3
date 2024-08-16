@@ -49,9 +49,9 @@
             You can test with the button below, or go to <a href="http://fakerestapi.azurewebsites.net/swagger">http://fakerestapi.azurewebsites.net</a>
 
             <pre>
-var root = 'http://fakerestapi.azurewebsites.net';
+var root = 'https://fakerestapi.azurewebsites.net/api/v1';
 $.ajax({
-    url: root + '/posts/1',
+    url: root + '/Activities/1',
     method: 'GET'
 }).then(function(data) {
     alert(data);
@@ -89,7 +89,7 @@ $.ajax({
     <script>
         $('#runTest').click(function () {
 
-            var root = 'http://fakerestapi.azurewebsites.net';
+            var root = 'https://fakerestapi.azurewebsites.net/api/v1';
 
             $.ajax({
                 url: root + '/api/activities/1',
