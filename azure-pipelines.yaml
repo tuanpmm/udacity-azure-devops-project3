@@ -228,7 +228,7 @@ stages:
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
-                sudo apt-get install -y chromium-browser==114.0.5735.199-1
+                sudo apt-get install -y chromium-browser
                 sudo apt-get install -y chromium-chromedriver
                 pip3 install selenium --break-system-packages
                 cd ~/
