@@ -12,7 +12,7 @@ options.add_argument('--no-sandbox')
 options.add_argument("--remote-debugging-port=9222")
 # servico = Service(ChromeDriverManager().install())
 # driver = webdriver.Chrome(service=servico, options=options)
-driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver')
+driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=options)
 totalItems = 6
 
 # Start the browser and login with standard_user
