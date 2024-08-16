@@ -244,7 +244,7 @@ stages:
                     # LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
                     wget https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.119/linux64/chromedriver-linux64.zip
                     unzip -o chromedriver-linux64.zip
-                    sudo mv chromedriver /usr/bin/chromedriver
+                    sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
                     sudo chown root:root /usr/bin/chromedriver
                     sudo chmod +x /usr/bin/chromedriverq
                 fi
