@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "786b303d-e11e-42c8-bd71-301516702462",
+		"name": "Postman Validation Test Suite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "279296"
+	},
+	"item": [
+		{
+			"name": "Create Author",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Create Author successful response\", function () {",
+							"    var json = pm.response.json();",
+							"    pm.expect(pm.response.code).to.eq(200);",
+							"    pm.expect(json.id).to.eq(20);",
+							"    pm.expect(json.idBook).to.eq(6);",
+							"    pm.expect(json.firstName).to.eq(\"Tuan\");",
+							"    pm.expect(json.lastName).to.eq(\"Pham\");",
+							"});",
+							"var json = pm.response.json();",
+							"pm.environment.set(\"id\", json.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{id}},\n    \"idBook\": {{idBook}},\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"{{lastName}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/v1/Authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get All Authors successful response\", function () {",
+							"    var json = pm.response.json();",
+							"    pm.expect(pm.response.code).to.eq(200);",
+							"    pm.expect(json[0].id).to.eq(1);",
+							"    pm.expect(json[0].idBook).to.eq(1);",
+							"    pm.expect(json[0].firstName).to.eq(\"First Name 1\");",
+							"    pm.expect(json[0].lastName).to.eq(\"Last Name 1\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{host}}/api/v1/Authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update Author successful response\", function () {",
+							"    var json = pm.response.json();",
+							"    pm.expect(pm.response.code).to.eq(200);",
+							"    pm.expect(json.id).to.eq(20);",
+							"    pm.expect(json.idBook).to.eq(6);",
+							"    pm.expect(json.firstName).to.eq(\"Minh Tuan\");",
+							"    pm.expect(json.lastName).to.eq(\"Pham\");",
+							"});",
+							"var json = pm.response.json();",
+							"pm.environment.set(\"id\", json.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain; v=1.0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; v=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{id}},\n    \"idBook\": {{idBook}},\n    \"firstName\": \"{{updateFirstName}}\",\n    \"lastName\": \"{{updateLastName}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/v1/Authors/{{id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete Author successful response\", function () {",
+							"    pm.expect(pm.response.code).to.eq(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": "{{host}}/api/v1/Authors/{{id}}"
+			},
+			"response": []
+		}
+	]
+}
