@@ -227,7 +227,8 @@ stages:
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
-                sudo apt-get install -y chromium-browser=112.*
+                sudo apt-get install -y chromium-browser
+                pip3 install webdriver-manager --break-system-packages
                 pip3 install selenium --break-system-packages
                 cd ~/
                 DIR=/home/azureuser/app
@@ -238,7 +239,7 @@ stages:
                 cd app
                 unzip -o $(Build.BuildId)-uitests.zip
                 sudo rm -d /usr/bin/chromedriver
-                wget http://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
+                wget http://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
                 unzip -o chromedriver_linux64.zip
                 sudo ln -s $PWD/chromedriver /usr/bin/chromedriver
                 export PATH=$PATH:/home/azureuser/app

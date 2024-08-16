@@ -1,14 +1,19 @@
 # #!/usr/bin/env python
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
 
 # --uncomment when running in Azure DevOps.
 options = ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-driver = webdriver.Chrome(options=options)
+servico = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=servico, options=options)
 totalItems = 6
 
 # Start the browser and login with standard_user
