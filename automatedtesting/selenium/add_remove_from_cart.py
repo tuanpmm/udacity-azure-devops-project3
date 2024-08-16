@@ -5,8 +5,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome()
-
 # --uncomment when running in Azure DevOps.
 options = ChromeOptions()
 options.add_argument('--headless')
