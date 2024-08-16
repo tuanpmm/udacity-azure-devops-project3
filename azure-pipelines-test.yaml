@@ -1,0 +1,30 @@
+trigger:
+- main
+
+pool: myAgentPool
+
+variables:
+  # Azure Resource Manager connection created during pipeline creation
+  azureServiceConnectionId: 'Udacity Azure DevOps Project 2'
+  
+  # Web app name
+  webAppName: 'tuanpm14-azure-devops-project2'
+
+  # Environment name
+  environmentName: 'tuanpm14-azure-devops-project2'
+
+  # Project root folder. Point to the folder containing manage.py file.
+  projectRoot: $(System.DefaultWorkingDirectory)
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: BuildJob
+    pool: myAgentPool
+    steps:    
+    - script: |
+        export PATH=$HOME/.local/bin:$PATH
+        echo 'Run lint tests'
+      workingDirectory: $(projectRoot)
+      displayName: 'Run lint tests'
