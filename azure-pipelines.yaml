@@ -223,20 +223,25 @@ stages:
               targetType: 'inline'
               script: |           
                 #! /bin/bash
-                
+                                
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
                 sudo apt-get install -y chromium-browser
-                pip3 install selenium
-                cd $(Pipeline.Workspace)/selenium
-                unzip $(Build.BuildId)-uitests.zip -d $(Build.BuildId)-uitests
-
-                cd $(Build.BuildId)-uitests
-                wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip 
+                pip3 install selenium --break-system-packages
+                cd ~/
+                DIR=/home/azureuser/app
+                if [ ! -d "$DIR" ]; then
+                    mkdir app
+                fi
+                mv /home/azureuser/azagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
+                cd app
+                unzip -o $(Build.BuildId)-uitests.zip
+                sudo rm -d /usr/bin/chromedriver
+                wget http://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
                 unzip -o chromedriver_linux64.zip
                 sudo ln -s $PWD/chromedriver /usr/bin/chromedriver
-                export PATH=$PATH:/usr/bin/chromedriver
+                export PATH=$PATH:/home/azureuser/app
                 echo "Starting Selenium Tests"
-                sudo python3 selenium-test.py >> selenium.log
+                python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
