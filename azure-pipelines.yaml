@@ -239,11 +239,12 @@ stages:
                 unzip -o $(Build.BuildId)-uitests.zip
                 FILE=/home/azureuser/app/chromedriver_linux64.zip
                 if [ ! -f "$FILE" ]; then
-                    wget http://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+                    LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+                    wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
                     unzip -o chromedriver_linux64.zip
                     sudo ln -s $PWD/chromedriver /usr/bin/chromium-browser
                 fi
-                export PATH=$PATH:/usr/bin/chromium-browser
+                export PATH=$PATH:/home/azureuser/app
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
