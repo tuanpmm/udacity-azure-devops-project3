@@ -13,7 +13,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Create Author successful response\", function () {",
+							"pm.test(\"[Regression Test] Create Author successful response\", function () {",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"});",
 							"var json = pm.response.json();",
@@ -52,7 +52,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Get All Authors successful response\", function () {",
+							"pm.test(\"[Regression Test] Get All Authors successful response\", function () {",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"});",
 							""
@@ -76,7 +76,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Update Author successful response\", function () {",
+							"pm.test(\"[Regression Test] Update Author successful response\", function () {",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"});",
 							"var json = pm.response.json();",
@@ -119,7 +119,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Delete Author successful response\", function () {",
+							"pm.test(\"[Regression Test] Delete Author successful response\", function () {",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"});"
 						],

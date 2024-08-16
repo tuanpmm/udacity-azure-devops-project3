@@ -13,7 +13,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Create Author successful response\", function () {",
+							"pm.test(\"[Validation Test] Create Author successful response\", function () {",
 							"    var json = pm.response.json();",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"    pm.expect(json.id).to.eq(20);",
@@ -57,7 +57,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Get All Authors successful response\", function () {",
+							"pm.test(\"[Validation Test] Get All Authors successful response\", function () {",
 							"    var json = pm.response.json();",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"    pm.expect(json[0].id).to.eq(1);",
@@ -86,7 +86,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Update Author successful response\", function () {",
+							"pm.test(\"[Validation Test] Update Author successful response\", function () {",
 							"    var json = pm.response.json();",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"    pm.expect(json.id).to.eq(20);",
@@ -134,7 +134,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Delete Author successful response\", function () {",
+							"pm.test(\"[Validation Test] Delete Author successful response\", function () {",
 							"    pm.expect(pm.response.code).to.eq(200);",
 							"});"
 						],

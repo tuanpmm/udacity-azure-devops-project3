@@ -1,0 +1,31 @@
+    /Volumes/D/d/u/udacity-azure-devops-project3/t/e/test  on   main !12 ?5  terraform apply solution.plan
+Acquiring state lock. This may take a few moments...
+module.network.azurerm_virtual_network.test: Creating...
+module.appservice.azurerm_service_plan.test: Creating...
+module.publicip.azurerm_public_ip.test: Creating...
+module.nsg-test.azurerm_network_security_group.nsg: Creating...
+module.publicip.azurerm_public_ip.test: Creation complete after 7s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Network/publicIPAddresses/tuanpm14-udacity-azure-devops-project3-publicip-pubip]
+module.nsg-test.azurerm_network_security_group.nsg: Creation complete after 8s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Network/networkSecurityGroups/tuanpm14-udacity-azure-devops-project3-NSG]
+module.network.azurerm_virtual_network.test: Still creating... [10s elapsed]
+module.appservice.azurerm_service_plan.test: Still creating... [10s elapsed]
+module.network.azurerm_virtual_network.test: Creation complete after 10s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Network/virtualNetworks/tuanpm14-udacity-azure-devops-project3-NET]
+module.network.azurerm_subnet.test: Creating...
+module.network.azurerm_subnet.test: Creation complete after 9s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Network/virtualNetworks/tuanpm14-udacity-azure-devops-project3-NET/subnets/tuanpm14-udacity-azure-devops-project3-NET-sub]
+module.nsg-test.azurerm_subnet_network_security_group_association.test: Creating...
+module.appservice.azurerm_service_plan.test: Creation complete after 19s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Web/serverFarms/tuanpm14-udacity-azure-devops-project3-AppService]
+module.appservice.azurerm_linux_web_app.test: Creating...
+module.nsg-test.azurerm_subnet_network_security_group_association.test: Creation complete after 8s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Network/virtualNetworks/tuanpm14-udacity-azure-devops-project3-NET/subnets/tuanpm14-udacity-azure-devops-project3-NET-sub]
+module.appservice.azurerm_linux_web_app.test: Still creating... [10s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [20s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [30s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [40s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [50s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [1m0s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [1m10s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [1m20s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [1m30s elapsed]
+module.appservice.azurerm_linux_web_app.test: Still creating... [1m40s elapsed]
+module.appservice.azurerm_linux_web_app.test: Creation complete after 1m44s [id=/subscriptions/6e375b9d-ad4b-4945-b141-04c0f4b89b97/resourceGroups/Azuredevops/providers/Microsoft.Web/sites/tuanpm14-udacity-azure-devops-project3-AppService]
+Releasing state lock. This may take a few moments...
+
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
