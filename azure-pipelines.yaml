@@ -227,7 +227,7 @@ stages:
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
-                sudo apt-get install -y chromium-browser
+                sudo apt-get install -y chromium-browser=114.0.5735.90
                 pip3 install selenium --break-system-packages
                 cd ~/
                 DIR=/home/azureuser/app
@@ -241,9 +241,9 @@ stages:
                 if [ ! -f "$FILE" ]; then
                     wget http://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
                     unzip -o chromedriver_linux64.zip
-                    sudo ln -s $PWD/chromedriver /usr/bin/chromedriver
+                    sudo ln -s $PWD/chromedriver /usr/bin/chromium-browser
                 fi
-                export PATH=$PATH:/usr/bin/chromedriver
+                export PATH=$PATH:/usr/bin/chromium-browser
                 echo "Starting Selenium Tests"
                 python3 add_remove_from_cart.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
